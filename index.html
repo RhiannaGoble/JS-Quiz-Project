@@ -6,6 +6,8 @@
 <!-- 4. Minimum of 5 multiple-choice questions, using radio buttons, clicking pics. NO text entry or popups. -->
 <!-- 5. Result at end given (e.g. from mostly a's), but hidden from view until end -->
 <!-- 6. Reuse of functions -->
+<!-- 7. Fun extras: Pie chart of answers? Randomise the order in which questions come up? #/5 on each Q page-->
+<!-- Another fun extra: hide buttons on view all results page -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,157 +18,293 @@
 </head>
 <body class="font-sans text-black">
     <!-- Title and description container -->
-    <div class="col bg-blue-500 w-2/3 m-auto">
+    <div class="col bg-blue-500 w-2/3 m-auto rounded-xl border-2 border-gray-600">
         <br/>
-    <h1 class="text-center text-2xl">Quiz: What Herp Are You?</h1>
-    <br></br>
-    <br></br>
-    <h2 class="col-span-1 text-center text-1xl">Quiz Description: Find out which amphibian or reptile best fits your personality</h2>
+        <br/>
+    <h1 class="text-center text-4xl font-bold">Quiz: Which Animal Are You?</h1>
+    <br/>
     <br/>
     </div>
     <!-- End of description container -->
 
     <!-- Start of quiz -->
-    <div id="QuizArea" class="bg-blue-300 text-center w-2/3 m-auto">
-    
         <!-- Introduction/Landing page -->
-            <div id="Introduction" class="bg-blue-400 w-full h-80">
+            <div id="Introduction" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center shadow-2xl">
             <br/>
             <br/>
-            <p>Lorem Ipsum text that will appear before the questions as an introduction</p>
+            <p class="text-2xl m-10">A multiple-choice personality quiz to determine which animal you have most in common with.</p>
             <br/>
             <!-- Quiz Start button - Note that this should only display before questions -->
-            <input type="button" value="Start Quiz" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="quizStart()"/>
+            <input type="button" value="Start Quiz" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="quizStart()"/>
             <br/>
             <br/>
             </div>
 
         <form>
         <!-- Question 1 -->
-        <div id="Q1" class="bg-blue-400 hidden w-full">
+        <div id="Q1" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
             <!-- Radio buttons go here -->
             <br/>
-            <input type="radio" name="Q1"
-            class="float-left w-1/3"> <p>TestWriting1</p>
+            <p class="text-2xl md:mx-10 mx-4">Which of these special powers would you most like to have?</p>
             <br/>
-        <input type="radio" name="Q1"
-            class="float-left w-1/3">
+            <div id="questionArea" class="text-left mx-5 md:mx-20 lg:mx-40">
+            <input checked type="radio" name="Q1" id="Q1A1" value="1" class="required">
+            <label for="Q1A1" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Disco sweat (glow under UV light)</label>
             <br/>
-            <input type="radio" name="Q1"
-            class="float-left w-1/3">
+            <input type="radio" name="Q1" id="Q1A2" value="2" class="required">
+            <label for="Q1A2" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Make enemies believe you are a cobra</label>
+            <br/>
+            <input type="radio" name="Q1" id="Q1A3" value="3" class="required">
+            <label for="Q1A3" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Fire blood from your eyes</label>
+            <br/>
+            <input type="radio" name="Q1" id="Q1A4" value="4" class="required">
+            <label for="Q1A4" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Heightened intelligence</label>
             <br/>
             <br/>
-            <input type="button" value="Next Question" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ2()"/>
+            </div>
+            <br/>
+            <input type="button" value="Next Question" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ2()"/>
+            <br/>
+            <br/>
+            <br/>
             </div>
                 
         <!-- Question 2 -->
-        <div id="Q2" class="bg-blue-400 hidden w-full">
+        <div id="Q2" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <!-- Radio buttons go here -->
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3"> <p>TestWriting2</p>
+            <p class="text-2xl md:mx-10 mx-4">Which of these options is your preferred habitat?</p>
             <br/>
-        <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <div id="questionArea" class="w-full md:mx-10 lg:mx-20 md:flex flex-wrap row md:gap-4 md:gap-y-2">
+            <img class="w-full basis-2/5 md:w-1/4 rounded-xl border-2 border-gray-200" alt="rainforest"
+            src="https://dl.dropboxusercontent.com/scl/fi/euapipgx1lioe88ccyvfx/habitat1rainforest.jpg?rlkey=p9vi0dgjrrkjun02gvr8kt8gq&dl=0" onclick="submitQ2Answer('1')">
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <img class="w-full basis-2/5 md:w-1/4 rounded-xl border-2 border-gray-200" alt="prairie"
+            src="https://dl.dropboxusercontent.com/scl/fi/yuhw97vzweduiiejyjzz5/habitat2prarie.jpg?rlkey=gsd44u3ljlfcb23v0yfcvi4ko&dl=0" onclick="submitQ2Answer('2')">
+            <br/>
+            <img class="w-full basis-2/5 md:w-1/4 rounded-xl border-2 border-gray-200" alt="desert"
+            src="https://dl.dropboxusercontent.com/scl/fi/kg3vrtgzzm606vm09zorv/habitat3desert.webp?rlkey=ppiucbmmzh7n0mgprtkbygrvw&dl=0" onclick="submitQ2Answer('3')">
+            <br/>
+            <img class="w-full basis-2/5 md:w-1/4 rounded-xl border-2 border-gray-200" alt="city"
+            src="https://dl.dropboxusercontent.com/scl/fi/nfq3ly6j622ieapvfj9rp/habitat4city.jpg?rlkey=k9ev1vw3w126bd5m0vt6bmbjv&dl=0" onclick="submitQ2Answer('4')">
             <br/>
             <br/>
-            <div class="row" class="justify-content-center">
-                <input type="button" value="Next Question" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ3()"/>
-                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             </div>
 
         <!-- Question 3 -->
-        <div id="Q3" class="bg-blue-400 hidden w-full">
+        <div id="Q3" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <!-- Radio buttons go here -->
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3"> <p>TestWriting3</p>
+            <p class="text-2xl md:mx-10 mx-4">What do your eating habits look like?</p>
             <br/>
-        <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <div id="questionArea" class="text-left mx-5 md:mx-20 lg:mx-40">
+            <input checked type="radio" name="Q3" id="Q3A1" value="1" class="required">
+            <label for="Q3A1" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">I will eat anything that can fit in my mouth, at any time</label>
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <input type="radio" name="Q3" id="Q3A2" value="2" class="required">
+            <label for="Q3A2" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">One huge meal, infrequently</label>
+            <br/>
+            <input type="radio" name="Q3" id="Q3A3" value="3" class="required">
+            <label for="Q3A3" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">I prefer lots of small snacks</label>
+            <br/>
+            <input type="radio" name="Q3" id="Q3A4" value="4" class="required">
+            <label for="Q3A4" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Three meals a day</label>
             <br/>
             <br/>
-            <div class="row" class="justify-content-center">
-                <input type="button" value="Next Question" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ4()"/>
-                </div>
+            </div>
+            <br/>
+            <input type="button" value="Next Question" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ4()"/>
+            <br/>
+            <br/>
+            <br/>
             </div>
 
         <!-- Question 4 -->
-        <div id="Q4" class="bg-blue-400 hidden w-full">
+        <div id="Q4" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <!-- Radio buttons go here -->
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3"> <p>TestWriting4</p>
+            <p class="text-2xl md:mx-10 mx-4">Which of these best describes you?</p>
             <br/>
-        <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <div id="questionArea" class="text-left mx-5 md:mx-20 lg:mx-40">
+            <input checked type="radio" name="Q4" id="Q4A1" value="1" class="required">
+            <label for="Q4A1" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Introverted</label>
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <input type="radio" name="Q4" id="Q4A2" value="2" class="required">
+            <label for="Q4A2" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Hot-headed</label>
+            <br/>
+            <input type="radio" name="Q4" id="Q4A3" value="3" class="required">
+            <label for="Q4A3" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">Easy to get along with</label>
+            <br/>
+            <input type="radio" name="Q4" id="Q4A4" value="4" class="required">
+            <label for="Q4A4" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">All-rounder</label>
             <br/>
             <br/>
-            <div class="row" class="justify-content-center">
-                <input type="button" value="Next Question" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ5()"/>
-                </div>
+            </div>
+            <br/>
+            <input type="button" value="Next Question" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ5()"/>
+            <br/>
+            <br/>
+            <br/>
             </div>
 
         <!-- Question 5 -->
-        <div id="Q5" class="bg-blue-400 hidden w-full">
+        <div id="Q5" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <!-- Radio buttons go here -->
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3"> <p>TestWriting5</p>
+            <p class="text-2xl md:mx-10 mx-4">I would rather see the world…</p>
             <br/>
-        <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <div id="questionArea" class="text-left mx-5 md:mx-20 lg:mx-40">
+            <input checked type="radio" name="Q5" id="Q5A1" value="1" class="required">
+            <label for="Q5A1" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">With a little less red</label>
             <br/>
-            <input type="radio" name="Q2"
-            class="float-left w-1/3">
+            <input type="radio" name="Q5" id="Q5A2" value="2" class="required">
+            <label for="Q5A2" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">In mostly blues and greens</label>
+            <br/>
+            <input type="radio" name="Q5" id="Q5A3" value="3" class="required">
+            <label for="Q5A3" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">In as many colours as possible (tetrachromacy)</label>
+            <br/>
+            <input type="radio" name="Q5" id="Q5A4" value="4" class="required">
+            <label for="Q5A4" class="hover:bg-white rounded-xl px-4 py-1 leading-loose text-l">The same as I do now</label>
             <br/>
             <br/>
-            <div class="row" class="justify-content-center">
-                <input type="button" value="Next Question" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToResultsPage()"/>
-                </div>
+            </div>
+            <br/>
+            <input type="button" value="Next Question" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToResultsPage()"/>
+            <br/>
+            <br/>
+            <br/>
             </div>
 
         <!-- Results -->
-        <div id="ResultsPage" class="bg-blue-400 hidden w-full">
-            <h1>Your Result:</h1>
-            <p></p>
-            <br/>
-            <br/>
-            <br/>
-            <div class="row" class="justify-content-center">
-                <input type="button" value="Retake The Quiz" class="bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="Restart()"/>
-                </div>
+        <div id="ResultsPage" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+         
             </div>
         <!-- Try to make one of the questions linked images -->
         </div>
         </form>        
 
-        <!-- Page Buttons -->
-        <!-- Question prev and next buttons - Note that prev should only display AFTER Q1, but next should start displaying ON Q1 -->
-        <div id="PageNav" class="inline-flex gap-5 hidden bg-blue-500 text-center w-2/3 m-auto">
-            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-xl">
-              Prev
-            </button>
-            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-xl" type="Submit">
-              Next
-            </button>          
-          <br/>
-          <br/>
+        <!-- Result1 - Frog -->
+        <div id="Frog" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <br/>
+            <h2 class="text-2xl"><span class="font-bold">Result:</span> <br/><br/> You are a polka dot tree frog! (Boana punctata)</h2>
+            <div>
+                <br/>
+            <img class="w-full md:w-1/3 lg:w-1/3 mx-auto rounded-xl border-2 border-gray-200" src="https://dl.dropboxusercontent.com/scl/fi/k3ud4dz07bh6o10m7chq3/result1frog2.jpg?rlkey=26aiilceigahjhb3ds8ckpqs7&dl=0">
+            </div>
+            <br/>
+            <br/>
+            <p class="mx-5 md:mx-20 lg:text-xl">One of the most common frogs of the Amazon rainforest, polka dot tree frogs secrete a biofluorescent liquid, which is thought to be used for marking their territory and communicating with potential mates. These frogs are commonly found on rafts of floating plants, travelling across the amazon basin. </p>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row" class="justify-content-center">
+                <input id="retake1" type="button" value="Retake The Quiz" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="Restart()"/>
+                </div>
+                <br/>
+                <br/>
+            <div class="row" class="justify-content-center">
+                    <input type="button" value="See All Possible Results" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="seeOtherResults()"/>
+                    </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+         <!-- Result2 - Snake -->
+         <div id="Snake" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <br/>
+            <h2 class="text-2xl"><span class="font-bold">Result:</span> <br/><br/> You are a Western hognose snake! (Heterodon nasicus)</h2>
+            <div>
+                <br/>
+            <img class="w-full md:w-1/3 lg:w-1/3 mx-auto rounded-xl border-2 border-gray-200" src="https://dl.dropboxusercontent.com/scl/fi/pgi9gowt88594bw5kfl3s/2resultsnake1.jpeg?rlkey=5wt6bwh3r1w15khzsohplls7h&dl=0">
+            </div>
+            <br/>
+            <br/>
+            <p class="mx-5 md:mx-20 lg:text-xl">Despite their small size, hognoses are known for their threatening impression of a cobra. These snakes will also dramatically play dead if intimidation doesn’t go to plan, complete with a foul smell and flopped tongue. Hognoses are popular in the pet trade, despite their aggressive temperament and mild toxicity. </p>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row" class="justify-content-center">
+                <input id="retake2" type="button" value="Retake The Quiz" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="Restart()"/>
+                </div>
+                <br/>
+                <br/>
+            <div class="row" class="justify-content-center">
+                    <input id="seeOthers2" type="button" value="See All Possible Results" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="seeOtherResults()"/>
+                    </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        <!-- Result3 - Lizard -->
+        <div id="Lizard" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <br/>
+            <h2 class="text-2xl sm:m-10"><span class="font-bold">Result:</span> <br/><br/> You are a Mexican plateau horned lizard! (Phrynosoma orbiculare)</h2>
+            <div>
+                <br/>
+            <img class="w-full md:w-1/3 lg:w-1/3 mx-auto rounded-xl border-2 border-gray-200" src="https://dl.dropboxusercontent.com/scl/fi/6x2o2fewqrwliyhaonbeb/result3lizard1.jpg?rlkey=idz2kradcmvly4qqtwr5aii4y&dl=0">
+            </div>
+            <br/>
+            <br/>
+            <p class="mx-5 md:mx-20 lg:text-xl">Despite their spiky appearance, horned lizards are relatively docile, and spend most of the day waiting for insects to pass by. They confuse predators by squirting foul-tasting blood from their eyes. </p>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row" class="justify-content-center">
+                <input id="retake3" type="button" value="Retake The Quiz" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="Restart()"/>
+                </div>
+                <br/>
+                <br/>
+            <div class="row" class="justify-content-center">
+                    <input id="seeOthers3" type="button" value="See All Possible Results" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="seeOtherResults()"/>
+                    </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        <!-- Result4 - Human -->
+        <div id="Human" class="bg-blue-400 w-2/3 h-full rounded-xl m-auto text-center hidden">
+            <br/>
+            <h2 class="text-2xl"><span class="font-bold">Result:</span> <br/><br/> Congratulations, you appear to be some kind of mammal, possibly even a human!</h2>
+            <div>
+                <br/>
+            <img class="w-full md:w-1/3 lg:w-1/3 mx-auto rounded-xl border-2 border-gray-200" src="https://dl.dropboxusercontent.com/scl/fi/t3ggcmxd3r6981leg41eu/result4human.jpg?rlkey=rr6og0zneesy7tyn16ufgwt7t&dl=0">
+            </div>
+            <br/>
+            <br/>
+            <p class="mx-5 md:mx-20 lg:text-xl">Humans are one of the few living animals to walk predominantly on two legs, and the widespread animal on earth besides orcas.</p>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row" class="justify-content-center">
+                <input id="retake4" type="button" value="Retake The Quiz" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="Restart()"/>
+                </div>
+                <br/>
+                <br/>
+            <div id="seeOthers4" class="row" class="justify-content-center">
+                    <input type="button" value="See All Possible Results" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="seeOtherResults()"/>
+                    </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        <!-- Back Button -->
+        <div id="BackButton" class="hidden bg-blue-500 text-center w-2/3 m-auto rounded-xl border-2 border-gray-600">
+            <br/>
+            <input type="button" value="Back" class="border-2 bg-gray-400 text-gray-800 hover:bg-gray-500 hover:text-gray-100  font-bold py-2 px-4 rounded-xl" onclick="ToQ1()"/>
+            <br/>
           <br/>
          </div>
-            <!-- Results Screen -->
-            <div class="justify-content-centre mx-auto hidden">
-            <h2>Your Result:</h2>
-            <p class="text-center">msg from Javascript will be displayed here</p>
-            <br/>
-            <!-- Results go in Javascript file using if/else/msg -->
         </div>
-    </div>
+    
 </body>
 <script src="index.js"></script>
 </html>
